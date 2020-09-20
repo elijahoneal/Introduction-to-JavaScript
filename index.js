@@ -95,60 +95,70 @@ console.log(dogFeeder(15,1));
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
+const rpsGame = userInput => {
+    if(userInput === 'rock' || userInput === 'paper' || userInput === 'scissors'){
+        console.log('You chose ' +  userInput);
+    } else {
+        console.log('Not Valid');
+    };
 
-  const game = (userInput) =>{
-        if(userInput === 'rock' || userInput === 'paper' || userInput === 'scissors'){
-            return userInput;
+    computerChoice = ['rock', 'paper', 'scissors'];
+    randomNum = Math.floor(Math.random() * 3 );
+    computerInput = computerChoice[randomNum];
+    console.log('Computer chose ' + computerInput);
+
+    if(userInput === computerInput ){
+        console.log('Tie Game')
+        return 'No Winners';
+        };
+
+    if(userInput === 'rock' ){
+        if(computerInput === 'scissors'){
+            console.log('You win');
         } else {
-            console.log('not valid');
+            console.log('Computer wins');
         }
+    };
 
-      let computerChoice = ['rock', 'paper', 'scissors'];
-      let randomNum = Math.floor(Math.random() * 3);
-      let computerInput =  computerChoice[randomNum]
-      
-      if(userInput === 'rock') {
-    if(computerInput ==='paper') {
-        console.log('The computer won!') 
-    } else {
-        console.log('You won!')
-    }
-  };
+    if(userInput === 'paper' ){
+        if(computerInput === 'rock'){
+            console.log('You win');
+        } else {
+            console.log('Computer wins');
+        }
+    };
 
-  if(userInput === 'paper') {
-    if(computerInput ==='scissor') {
-        console.log('The computer won!') 
-    } else {
-        console.log('You won!')
-    }
-  };
+    if(userInput === 'scissors' ){
+        if(computerInput === 'paper'){
+            console.log('You win');
+        } else {
+            console.log('Computer wins');
+        }
+    };
 
-  if(userInput === 'scissor') {
-    if(computerInput ==='rock') {
-      console.log('The computer won!') 
-    } else {
-        console.log('You won!')
-    }
-  };
+   
 
-  if(userInput === computerInput) {
-      console.log('Tie Game')
-  }
-
-  };
-
-  game('paper');
+};
+rpsGame('paper');
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
-
+const metricConverterKM = km =>{
+    let mileConversion = km / 1.609;
+    console.log(mileConversion + ' miles'); 
+};
+metricConverterKM(10)
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
+const metricConverterFT = ft =>{
+    let footConversion = ft * 30.48;
+    console.log(footConversion + ' centimeters'); 
+};  
+metricConverterFT(5);
 
 
 
@@ -157,8 +167,11 @@ console.log(dogFeeder(15,1));
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
+//   let bottles;
 
+for (let i = 99; i >= 90; i-- ){
+    console.log(`${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i -1} bottles of soda on the wall`);
+}
 
 
 
@@ -171,7 +184,20 @@ console.log(dogFeeder(15,1));
 //60s should be D 
 //and anything below 60 should be F
   
-
+const gradeCalculator = grade => {
+    if(grade >= 90){
+        console.log('A');
+    } else if(grade < 90 && grade >= 80){
+        console.log('B');
+    } else if(grade < 80 && grade >= 70){
+        console.log('C');
+    } else if(grade < 70 && grade >= 60){
+        console.log('D');
+    } else {
+        console.log('F');
+    };
+};
+gradeCalculator(10);
   
   
 
